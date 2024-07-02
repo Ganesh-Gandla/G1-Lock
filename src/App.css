@@ -4,11 +4,16 @@
 }
 
 body{
-  background-color: rgb(140, 250, 226);
+  
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 }
 
-nav{
-  background-color: green;
+h2{
+  color: #011c4e;
+}
+
+nav {
+  background-image: linear-gradient(to right, #025dad 0%, #033491 100%);
   padding: 6px;
 }
 
@@ -36,10 +41,10 @@ li{
 
 .password-generator input{
   width: 50%;
-  height: 2vh;
+  height: 1rem;
   display: flex;
   flex-direction: column;
-  padding: 1vw;
+  padding: 0.5rem;
   border: none;
   border-radius: 1rem;
   background-color: white;
@@ -47,10 +52,33 @@ li{
 
 .password-generator button{
   width: 50%;
-  height: 5vh;
+  height: 2rem;
   border: none;
   border-radius: 1rem;
-  background-color: green;
+  background-image: linear-gradient(to right, #025dad 0%, #033491 100%);
   color: white;
   font-weight: bolder;
+}
+
+table{
+  height: 100px;
+  width: 80%;
+  margin: auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+thead{
+  color: white;
+  background-image: linear-gradient(to right, #025dad 0%, #033491 100%);
+
+}
+
+tbody{
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  
+}
+
+td{
+  text-align: center;
 }
