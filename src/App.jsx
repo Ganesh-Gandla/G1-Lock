@@ -28,10 +28,18 @@ function App() {
     <>
       <Navbar />
       <div className="password-generator">
-        <input type="text" placeholder='Enter the site' name="Site" onChange={handleChange} />
-        <input type="text" placeholder='Enter the User Name' name="UserName" onChange={handleChange} />
-        <input type="text" placeholder='Enter the Password' name="Password" onChange={handleChange} />
+        <div className="site">
+          <input type="text" placeholder='Enter the site' name="Site" onChange={handleChange} />
+        </div>
+        <div className='userPass'>
+          <input type="text" placeholder='Enter the User Name' name="UserName" onChange={handleChange} />
+          <div className="password">
+            <input type="text" placeholder='Enter the Password' name="Password" onChange={handleChange} />
+            <span className='showpassword'><img src="./icons/eye.png" alt="" /></span>
+          </div>
+        </div>
         <button onClick={savePassword}>Save Password</button>
+
       </div>
       <h2>Your Passwords</h2>
       <table>
