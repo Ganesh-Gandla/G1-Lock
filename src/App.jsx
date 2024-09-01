@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import Navbar from '../components/Navbar'
 
 function App() {
+
   const [form, setForm] = useState({ Site: "", UserName: "", Password: "" })
   const [passwordArray, setPasswordArray] = useState([])
-  const [showBtn, setShowBtn] = useState(false)
-  const [showIcon, setShowIcon] = useState("./icons/eye.png")
-  const copyIcon = () => {<img src='./icons/copy.png'></img>} 
+  // const [showBtn, setShowBtn] = useState(true)
+  // const [showIcon, setShowIcon] = useState("./icons/hidden.png")
+  // const [PassType, setPassType] = useState("password")
+  const PasswordRef = useRef()
+  const ref = useRef()
+  const copyIcon = './icons/copy.png'
 
   useEffect(() => {
     let passwords = localStorage.getItem("passwords");
@@ -32,8 +36,20 @@ function App() {
     
   }
   const handleShowPassowd = () => {
-    setShowBtn (!showBtn);
-    setShowIcon(showBtn? "./icons/eye.png" : "./icons/hidden.png")
+
+    if (ref.current.src.includes("icons/hidden.png")){
+      PasswordRef.current.type = "password";
+      ref.current.src = "icons/eye.png";
+    } else {
+      PasswordRef.current.type = "text";
+      ref.current.src = "icons/hidden.png";
+    }
+
+
+
+    // ref.current.src.includes("icons/hidden.png"? (PasswordRef.current.type = "text") (ref.current.src = "icons/hidden.png") : (PasswordRef.current.type = "password") (ref.current.src = "icons/eye.png") (alert("false")) )
+
+
   }
 
   const copyText = (text) => {
@@ -64,8 +80,8 @@ function App() {
         <div className='userPass'>
           <input type="text" value= {form.UserName} placeholder='Enter the User Name' name="UserName" onChange={handleChange} />
           <div className="password">
-            <input type="text" value={form.Password} placeholder='Enter the Password' name="Password" onChange={handleChange} />
-            <span className='showpassword'><img src={showIcon} alt="" onClick={handleShowPassowd}/></span>
+            <input ref={PasswordRef} type= "password" value={form.Password} placeholder='Enter the Password' name="Password" onChange={handleChange} />
+            <span className='showpassword'><img ref={ref} src="icons/eye.png" alt="" onClick={handleShowPassowd}/></span>
           </div>
         </div>
         <button onClick={savePassword}>Save Password</button>
@@ -85,16 +101,18 @@ function App() {
         <tbody>
           {passwordArray.map((item, index) => {
             return <tr key={index}>
-              <td>{item.Site} <img src='./icons/copy.png' onClick={()=>{copyText(item.Site)}}></img> </td>
-              <td>{item.UserName} <img src='./icons/copy.png' onClick={()=>{copyText(item.UserName)}}></img></td>
-              <td>{item.Password}<img src='./icons/copy.png' onClick={()=>{copyText(item.Password)}}></img></td>
+              <td>{item.Site} <img src={copyIcon} onClick={()=>{copyText(item.Site)}}></img> </td>
+              <td>{item.UserName} <img src={copyIcon} onClick={()=>{copyText(item.UserName)}}></img></td>
+              <td>{item.Password}<img src={copyIcon} onClick={()=>{copyText(item.Password)}}></img></td>
               <td>
                 <div className='actions'>
                 <div className='edit' onClick={()=>{HandleEdit(item.id)}}>
-                  Edit<img src='./icons/pencil.png' ></img>
+                  <p>Edit</p>
+                  <img src='./icons/pencil.png' ></img>
                 </div>
                 <div className='delete' onClick={()=>{HandleDelete(item.id)}}>
-                  Delete<img src='./icons/delete.png' ></img>
+                  <p>Delete</p>
+                  <img src='./icons/delete.png' ></img>
                 </div>
                 </div>
               </td>

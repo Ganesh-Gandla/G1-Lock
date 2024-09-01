@@ -153,8 +153,8 @@ td img {
 }
 
 .edit img, .delete img {
-    width: 3.5vmin;
-    height: 3.5vmin;
+    width: 3vmin;
+    height: 3vmin;
     cursor: pointer;
 }
 
@@ -170,6 +170,10 @@ td img {
     .userPass{
       flex-direction: column;
       gap: 3vh;
+    }
+
+    .edit p, .delete p{
+      display: none;
     }
   }
 
