@@ -2,14 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import './App.css'
 import Navbar from '../components/Navbar'
+import SignIn_SignUp from '../components/SignIn_SignUp';
 
 function App() {
 
   const [form, setForm] = useState({ Site: "", UserName: "", Password: "" })
   const [passwordArray, setPasswordArray] = useState([])
-  // const [showBtn, setShowBtn] = useState(true)
-  // const [showIcon, setShowIcon] = useState("./icons/hidden.png")
-  // const [PassType, setPassType] = useState("password")
   const PasswordRef = useRef()
   const ref = useRef()
   const copyIcon = './icons/copy.png'
@@ -59,7 +57,6 @@ function App() {
   const HandleEdit = (id) => {
     setForm(passwordArray.filter((i)=> i.id === id)[0]);
     setPasswordArray(passwordArray.filter((item) => item.id !== id));
-
   }
 
   const HandleDelete = (id) => {
@@ -73,6 +70,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <SignIn_SignUp/>
       <div className="password-generator">
         <div className="site">
           <input type="text" value= {form.Site} placeholder='Enter the site' name="Site" onChange={handleChange} />

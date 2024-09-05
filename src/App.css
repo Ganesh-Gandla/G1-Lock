@@ -16,6 +16,19 @@ body{
   background-color: var(--shade3);
 }
 
+p, a{
+  text-decoration: none;
+  color: var(--shade1);
+  text-align: center;
+  font-weight: bolder;
+  font-size: x-small;
+}
+
+h1{
+  color: var(--shade1);
+}
+
+
 h2{
   color: var(--shade1);
   width: var(--width);
@@ -39,6 +52,30 @@ li{
   list-style-type: none;
   color: white;
 }
+
+.container{
+  width: var(--SignWidth);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  margin: 10vh auto;
+}
+
+.ForgotSignUP{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SignInSignUpBTN{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
 
 .password-generator{
   width: var(--width);
@@ -89,7 +126,7 @@ input{
 }
 
 
-.password-generator button{
+button{
   width: 100%;
   height: 2rem;
   padding: 0.5rem;
@@ -99,6 +136,12 @@ input{
   color: white;
   font-weight: bolder;
   cursor: pointer;
+}
+
+.DisableBtn{
+  background-color: rgb(255, 255, 255);
+  background-image:none;
+  color: #033491;
 }
 
 table{
@@ -164,7 +207,8 @@ td img {
 
   @media only screen and (max-width: 600px){
     :root{
-      --width: 90vw
+      --width: 90vw;
+      --SignWidth: 70vw;
     }
 
     .userPass{
@@ -180,14 +224,16 @@ td img {
   @media only screen and (min-width: 600px){
 
     :root{
-      --width: 80vw
+      --width: 80vw;
+      --SignWidth: 40vw;
     }
   }
 
   @media only screen and (min-width: 786px){
 
     :root{
-      --width: 60vw
+      --width: 60vw;
+      --SignWidth: 25vw;
     }
   }
 
