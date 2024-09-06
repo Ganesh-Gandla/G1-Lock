@@ -1,22 +1,42 @@
-:root{
-  --shade1: #033491; /*gradient-right-color*/
-  --shade2: #025dad; /*gradient-left-color*/
-  --shade3: #cee8ff; /*background-color*/
-  --shade4: #82aaf3; /*input-boder-color*/
+:root {
+  --shade1: #033491;
+  /*gradient-right-color*/
+  --shade2: #025dad;
+  /*gradient-left-color*/
+  --shade3: #cee8ff;
+  /*background-color*/
+  --shade4: #82aaf3;
+  /*input-boder-color*/
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2vmin;
 }
 
-body{
+body {
   background-color: var(--shade3);
 }
 
-h2{
+p,
+a {
+  text-decoration: none;
+  color: var(--shade1);
+  /* text-align: center; */
+
+  font-weight: bolder;
+  font-size: x-small;
+  width: 100%;
+}
+
+h1 {
+  color: var(--shade1);
+}
+
+
+h2 {
   color: var(--shade1);
   width: var(--width);
   margin: auto;
@@ -28,19 +48,49 @@ nav {
   padding: 6px;
 }
 
-ul{
-
+ul {
   display: flex;
+  justify-content: left;
+  /* justify-content: start; */
   gap: 25px;
   margin-left: 20px;
 }
 
-li{
+ul a {
   list-style-type: none;
   color: white;
+  text-align: start;
+  width: max-content;
 }
 
-.password-generator{
+.container,
+.home {
+  width: var(--SignWidth);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
+  margin: 25vh auto;
+}
+
+.ForgotSignUP {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.SignInSignUpBTN {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.password-generator {
   width: var(--width);
   display: flex;
   flex-direction: column;
@@ -50,7 +100,7 @@ li{
   margin: 10vh auto;
 }
 
-input{
+input {
   width: 100%;
   box-sizing: border-box;
   height: 1rem;
@@ -62,20 +112,22 @@ input{
   background-color: white;
 }
 
-.site{
+.site {
   width: 100%;
 }
-.userPass{
+
+.userPass {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 1vw;
 }
 
-.password{
+.password {
   position: relative;
   width: 100%;
 }
+
 .showpassword img {
   width: 1.1rem;
   height: 1.1rem;
@@ -83,13 +135,13 @@ input{
 }
 
 .showpassword {
-  position:absolute;
+  position: absolute;
   right: 0.5rem;
   top: 0.5rem;
 }
 
 
-.password-generator button{
+button {
   width: 100%;
   height: 2rem;
   padding: 0.5rem;
@@ -101,7 +153,8 @@ input{
   cursor: pointer;
 }
 
-table{
+
+table {
   height: 100px;
   width: var(--width);
   margin: auto;
@@ -109,42 +162,44 @@ table{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 195, 255, 0.19);
 }
 
-thead{
+thead {
   color: white;
   background-image: linear-gradient(to right, var(--shade2) 0%, var(--shade1) 100%);
 
 }
 
-tbody{
+tbody {
   background-color: var(--shade3);
   color: var(--shade1);
   font-size: small;
   font-weight: bold;
-  
+
 }
 
-td{
+td {
   text-align: center;
   overflow-x: hidden;
   padding: 2vmin 0;
 }
-th{
+
+th {
   padding: 1vh;
 }
 
 
 td img {
-    width: 2vmin;
-    height: 2vmin;
-    cursor: pointer;
+  width: 2vmin;
+  height: 2vmin;
+  cursor: pointer;
 }
 
-.actions{
+.actions {
   display: flex;
   justify-content: space-evenly;
 }
 
-.edit, .delete{
+.edit,
+.delete {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,43 +207,46 @@ td img {
   cursor: pointer;
 }
 
-.edit img, .delete img {
-    width: 3vmin;
-    height: 3vmin;
-    cursor: pointer;
+.edit img,
+.delete img {
+  width: 3vmin;
+  height: 3vmin;
+  cursor: pointer;
 }
 
 
 
 /* media quairies */
 
-  @media only screen and (max-width: 600px){
-    :root{
-      --width: 90vw
-    }
-
-    .userPass{
-      flex-direction: column;
-      gap: 3vh;
-    }
-
-    .edit p, .delete p{
-      display: none;
-    }
+@media only screen and (max-width: 600px) {
+  :root {
+    --width: 90vw;
+    --SignWidth: 70vw;
   }
 
-  @media only screen and (min-width: 600px){
-
-    :root{
-      --width: 80vw
-    }
+  .userPass {
+    flex-direction: column;
+    gap: 3vh;
   }
 
-  @media only screen and (min-width: 786px){
-
-    :root{
-      --width: 60vw
-    }
+  .edit p,
+  .delete p {
+    display: none;
   }
+}
 
+@media only screen and (min-width: 600px) {
 
+  :root {
+    --width: 80vw;
+    --SignWidth: 40vw;
+  }
+}
+
+@media only screen and (min-width: 786px) {
+
+  :root {
+    --width: 60vw;
+    --SignWidth: 25vw;
+  }
+}
